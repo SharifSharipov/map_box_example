@@ -26,35 +26,39 @@ class _OpeenStreetMapPageState extends State<OpeenStreetMapPage>
       body: Stack(
         children: [
           FlutterMap(
-              mapController: mapController,
-              options: MapOptions(
-                initialCenter: LatLng(0,0),
-                initialZoom: 2,
-                minZoom: 0,
+            mapController: mapController,
+            options: MapOptions(
+              initialCenter: LatLng(0, 0),
+              initialZoom: 2,
+              minZoom: 0,
+              maxZoom: 100,
+            ),
+            children: [
+              TileLayer(
+                urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
                 maxZoom: 100,
               ),
-              children: [
-                TileLayer(
-                  urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-                  maxZoom: 100,
-                ),
-                CurrentLocationLayer(
-                  style: LocationMarkerStyle(
-                    marker: DefaultLocationMarker(
-                      child: Icon(
-                        Icons.location_on,
-                        color: Colors.red,
-                        size: 40,
-                      ),
-                      
+              CurrentLocationLayer(
+                style: LocationMarkerStyle(
+                  marker: DefaultLocationMarker(
+                    child: Icon(
+                      Icons.location_on,
+                      color: Colors.red,
+                      size: 40,
                     ),
-                    markerSize: const Size(40, 40),
-                    markerDirection: MarkerDirection.heading,
                   ),
-                )
-              ])
+                  markerDirection:
+                      MarkerDirection.north, // Sensorni to‘liq o‘chiradi
+                ),
+              )
+            ],
+          )
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+          elevation: 0, onPressed: () async{
+           await initLocation();
+          }, child: const Icon(Icons.my_location)),
     );
   }
 }

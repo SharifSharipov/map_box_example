@@ -40,12 +40,16 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>We need your location to provide better services</string>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>We need your location even when the app is in the background</string>
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>We need your location even when the app is in the background</string>	
+	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to provide better services</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need your location even when the app is in the background</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>We need your location even when the app is in the background</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
 	</array>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
